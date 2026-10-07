@@ -1,0 +1,88 @@
+{
+ "source": "https://jlc3dp.com/help/article/3D-Printing-Design-Guideline",
+ "clearances": [
+  {
+   "interface": "Tongue width 3.2 in groove 4.0 (Y, both sides)",
+   "nominal_total_clearance_mm": 0.8,
+   "worst_min_mm": 0.4,
+   "worst_max_mm": 1.2,
+   "jlc_rule": "assembly (separate prints), per side",
+   "jlc_min_mm": 0.2,
+   "nominal_meets_rule": true,
+   "worst_case_fits": true,
+   "worst_per_side_mm": [
+    0.2,
+    0.6
+   ],
+   "note": "JLC 'moving or connecting parts' 0.5 mm treated as print-in-place; guideline does not say. Per side 0.4 nominal."
+  },
+  {
+   "interface": "Tongue tip span 23.94 in groove-bottom span 24.74 (X, both sides)",
+   "nominal_total_clearance_mm": 0.8,
+   "worst_min_mm": 0.4,
+   "worst_max_mm": 1.2,
+   "jlc_rule": "assembly (separate prints), per side",
+   "jlc_min_mm": 0.2,
+   "nominal_meets_rule": true,
+   "worst_case_fits": true,
+   "worst_per_side_mm": [
+    0.2,
+    0.6
+   ],
+   "note": "JLC 'moving or connecting parts' 0.5 mm treated as print-in-place; guideline does not say. Per side 0.4 nominal."
+  },
+  {
+   "interface": "Cartridge front face to RearStop back face (Y)",
+   "nominal_total_clearance_mm": 0.5,
+   "worst_min_mm": 0.1,
+   "worst_max_mm": 0.9,
+   "jlc_rule": "assembly",
+   "jlc_min_mm": 0.2,
+   "nominal_meets_rule": true,
+   "worst_case_fits": true
+  },
+  {
+   "interface": "Squeeze pad to wall face (X)",
+   "nominal_total_clearance_mm": 0.75,
+   "worst_min_mm": 0.35,
+   "worst_max_mm": 1.15,
+   "jlc_rule": "moving",
+   "jlc_min_mm": 0.5,
+   "nominal_meets_rule": true,
+   "worst_case_fits": true
+  }
+ ],
+ "detent_hole": {
+  "hole_nominal_dia": 2.653,
+  "hole_tol": 0.3,
+  "preload_at_min_hole": 0.531,
+  "preload_nominal": 0.3,
+  "preload_at_max_hole": 0.0,
+  "note": "at \u00d82.95 the ball (1.45 mm radius at the groove plane) no longer seats on the hole edge: no preload, ball floats about \u00b10.03 mm"
+ },
+ "long_dimension_tolerance_mm": {
+  "Mount length Y (311.5 mm)": 0.93,
+  "Mount height Z (232.0 mm)": 0.7
+ },
+ "post_print_drift_mm": {
+  "1-3 days 0.15%": {
+   "mount 311.5 mm": 0.47,
+   "cartridge 67 mm": 0.15
+  },
+  "3-7 days 0.20%": {
+   "mount 311.5 mm": 0.62,
+   "cartridge 67 mm": 0.2
+  }
+ },
+ "usb_port_alignment_z": {
+  "pocket centre above cartridge base": 40.44,
+  "contributors": {
+   "cartridge base->pocket \u00b10.2": 0.2,
+   "floor top Z 4 \u00b10.2": 0.2
+  },
+  "worst_case_mm": 0.4,
+  "rss_mm": 0.28,
+  "laptop_seating_bias_mm": -0.15,
+  "usb_c_plug_float_mm": 0.75
+ }
+}

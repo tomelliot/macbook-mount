@@ -1,0 +1,78 @@
+{
+ "assumptions": {
+  "arm_mm": [
+   1.5,
+   3.2
+  ],
+  "release_deflection_at_ball_mm": 1.2,
+  "flex_gap_mm": 2.5,
+  "E_GPa_for_forces": 2.5
+ },
+ "highest_root_that_releases_before_hitting_body": 38.0,
+ "cases": {
+  "20.0": {
+   "root_z": 20.0,
+   "free_length_to_ball_mm": 32.5,
+   "release": {
+    "root_strain_pct": 0.2207638515330823,
+    "body_top_deflection_mm": 1.6938138784292631,
+    "pad_deflection_mm": 2.213770844540076,
+    "pad_force_N": 0.13942980096826252
+   },
+   "insertion": {
+    "root_strain_pct": 0.23431952662721894,
+    "body_top_deflection_mm": 1.4807692307692308,
+    "ball_force_N": 0.2162949476558944
+   },
+   "release_clears_body": true
+  },
+  "30.0": {
+   "root_z": 30.0,
+   "free_length_to_ball_mm": 22.5,
+   "release": {
+    "root_strain_pct": 0.4444444444444444,
+    "body_top_deflection_mm": 1.9555555555555555,
+    "pad_deflection_mm": 2.7777777777777772,
+    "pad_force_N": 0.35555555555555557
+   },
+   "insertion": {
+    "root_strain_pct": 0.48888888888888893,
+    "body_top_deflection_mm": 1.6500000000000001,
+    "ball_force_N": 0.6518518518518519
+   },
+   "release_clears_body": true
+  },
+  "35.0": {
+   "root_z": 35.0,
+   "free_length_to_ball_mm": 17.5,
+   "release": {
+    "root_strain_pct": 0.7163265306122447,
+    "body_top_deflection_mm": 2.2193877551020407,
+    "pad_deflection_mm": 3.362755102040816,
+    "pad_force_N": 0.6612244897959183
+   },
+   "insertion": {
+    "root_strain_pct": 0.8081632653061225,
+    "body_top_deflection_mm": 1.8071428571428572,
+    "ball_force_N": 1.3854227405247814
+   },
+   "release_clears_body": true
+  },
+  "40.0": {
+   "root_z": 40.0,
+   "free_length_to_ball_mm": 12.5,
+   "release": {
+    "root_strain_pct": 1.3577142857142857,
+    "body_top_deflection_mm": 2.7428571428571424,
+    "pad_deflection_mm": 4.563428571428571,
+    "pad_force_N": 1.481142857142857
+   },
+   "insertion": {
+    "root_strain_pct": 1.5840000000000005,
+    "body_top_deflection_mm": 2.0900000000000003,
+    "ball_force_N": 3.8016000000000005
+   },
+   "release_clears_body": false
+  }
+ }
+}

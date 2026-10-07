@@ -1,0 +1,10 @@
+# FreeCAD MCP server: separate clone of github.com/neka-nat/freecad-mcp (v0.1.25)
+freecad-mcp/
+
+# FreeCAD backups and OS clutter
+*.FCBak
+*.FCStd1
+.DS_Store
+
+# Python
+__pycache__/

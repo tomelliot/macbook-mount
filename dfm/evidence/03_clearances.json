@@ -1,0 +1,107 @@
+[
+ {
+  "check": "Tongue to groove, front face (feet side, Z 10)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Tongue to groove, rear face (feet side, Z 10)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Tongue to groove, front face (lid side, Z 10)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Tongue tip to groove bottom (feet side, Z 10)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Tongue tip to groove bottom (lid side, Z 10)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Flex arm to groove bottom (feet side, Z 45)",
+  "class": "moving",
+  "design_mm": 0.4,
+  "measured_mm": 0.4
+ },
+ {
+  "check": "Cartridge body to RearStop (Z 10)",
+  "class": "assembly",
+  "design_mm": 0.5,
+  "measured_mm": 0.5
+ },
+ {
+  "check": "Cartridge body side to wall (feet side, Y 325, Z 30)",
+  "class": "assembly",
+  "design_mm": 2.4,
+  "measured_mm": 2.4
+ },
+ {
+  "check": "Cartridge base to Floor (rests by gravity)",
+  "class": "contact",
+  "design_mm": 0.0,
+  "measured_mm": 0.0
+ },
+ {
+  "check": "Squeeze pad to wall face (feet side, Y 328, Z 67)",
+  "class": "moving",
+  "design_mm": 0.75,
+  "measured_mm": 0.75
+ },
+ {
+  "check": "Laptop lid face to Wall_Lid",
+  "class": "fit",
+  "design_mm": 2.0,
+  "measured_mm": 2.0
+ },
+ {
+  "check": "Laptop bottom case to Wall_Feet",
+  "class": "fit",
+  "design_mm": 2.0,
+  "measured_mm": 2.0
+ },
+ {
+  "check": "Laptop rubber feet to Wall_Feet",
+  "class": "fit",
+  "design_mm": 1.1,
+  "measured_mm": 1.102
+ },
+ {
+  "check": "Laptop end to RearStop",
+  "class": "fit",
+  "design_mm": 2.0,
+  "measured_mm": 2.0
+ },
+ {
+  "check": "Flex arm inner face to cartridge body (squeeze travel, Z 45)",
+  "class": "internal",
+  "design_mm": 2.5,
+  "measured_mm": [
+   2.5,
+   2.5
+  ]
+ },
+ {
+  "check": "Detent ball vs hole edge (lid side) - interference = preload",
+  "class": "preload",
+  "design_mm": 0.3,
+  "measured_overlap_mm3": 0.1696
+ },
+ {
+  "check": "Detent ball vs hole edge (feet side) - interference = preload",
+  "class": "preload",
+  "design_mm": 0.3,
+  "measured_overlap_mm3": 0.1696
+ }
+]

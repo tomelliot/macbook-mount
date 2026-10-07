@@ -1,0 +1,38 @@
+{
+ "Mount_Fused": {
+  "bbox_xyz_mm": [
+   63.74,
+   311.5,
+   232.0
+  ],
+  "volume_cm3": 447.61,
+  "area_cm2": 2397.0,
+  "solids": 1,
+  "shells_per_solid": [
+   1
+  ],
+  "closed": true,
+  "valid": true,
+  "fits_580x580x380": true,
+  "fits_780x780x530": true,
+  "above_min_5x5x5": true
+ },
+ "USBC_Cartridge": {
+  "bbox_xyz_mm": [
+   26.91,
+   17.78,
+   67.0
+  ],
+  "volume_cm3": 16.02,
+  "area_cm2": 65.5,
+  "solids": 1,
+  "shells_per_solid": [
+   1
+  ],
+  "closed": true,
+  "valid": true,
+  "fits_580x580x380": true,
+  "fits_780x780x530": true,
+  "above_min_5x5x5": true
+ }
+}

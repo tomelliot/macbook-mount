@@ -1,0 +1,42 @@
+{
+ "USBC_Cartridge": {
+  "x": {
+   "thickness_mm": 1.5,
+   "ray_u": 330.525,
+   "ray_w": 40.05,
+   "segment_start": -13.093
+  },
+  "y": {
+   "thickness_mm": 3.2,
+   "ray_u": -13.02,
+   "ray_w": 4.05,
+   "segment_start": 330.4
+  },
+  "z": {
+   "thickness_mm": 3.111,
+   "ray_u": -4.27,
+   "ray_w": 320.775,
+   "segment_start": 56.889
+  }
+ },
+ "Mount_Fused": {
+  "x": {
+   "thickness_mm": 2.0,
+   "ray_u": 330.25,
+   "ray_w": 4.75,
+   "segment_start": -15.493
+  },
+  "y": {
+   "thickness_mm": 4.0,
+   "ray_u": -48.393,
+   "ray_w": 226.25,
+   "segment_start": 27.0
+  },
+  "z": {
+   "thickness_mm": 4.0,
+   "ray_u": -50.393,
+   "ray_w": 31.25,
+   "segment_start": 228.0
+  }
+ }
+}
