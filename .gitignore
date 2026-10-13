@@ -8,3 +8,6 @@ freecad-mcp/
 
 # Python
 __pycache__/
+
+# Build outputs (BREP, logs)
+build/out/

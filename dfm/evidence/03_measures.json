@@ -1,0 +1,162 @@
+[
+ {
+  "object": "M_01",
+  "check": 10,
+  "measure": "Tongue to groove, front face (feet, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "CartRail_Feet.Face8",
+   "Cart_Tongue_Feet.Face1"
+  ]
+ },
+ {
+  "object": "M_02",
+  "check": 10,
+  "measure": "Tongue to groove, rear face (feet, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "Cart_Tongue_Feet.Face3",
+   "CartRail_Feet.Face10"
+  ]
+ },
+ {
+  "object": "M_03",
+  "check": 10,
+  "measure": "Tongue to groove, front face (lid, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "CartRail_Lid.Face2",
+   "Cart_Tongue_Lid.Face1"
+  ]
+ },
+ {
+  "object": "M_04",
+  "check": 10,
+  "measure": "Tongue to groove, rear face (lid, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "Cart_Tongue_Lid.Face3",
+   "CartRail_Lid.Face4"
+  ]
+ },
+ {
+  "object": "M_05",
+  "check": 10,
+  "measure": "Tongue tip and arm to groove bottom (feet, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "Cart_Tongue_Feet.Face4",
+   "CartRail_Feet.Face20"
+  ]
+ },
+ {
+  "object": "M_06",
+  "check": 10,
+  "measure": "Tongue tip and arm to groove bottom (lid, Z 10)",
+  "design_mm": 0.4,
+  "measured_mm": 0.4,
+  "between": [
+   "Cart_Tongue_Lid.Face4",
+   "CartRail_Lid.Face3"
+  ]
+ },
+ {
+  "object": "M_07",
+  "check": 11,
+  "measure": "Cartridge front to RearStop (Z 10)",
+  "design_mm": 0.5,
+  "measured_mm": 0.5,
+  "between": [
+   "RearStop.Face9",
+   "Cart_Body_Cut.Face4"
+  ]
+ },
+ {
+  "object": "M_08",
+  "check": 12,
+  "measure": "Squeeze pad to rail top (feet, X 12.5)",
+  "design_mm": null,
+  "measured_mm": 3.5,
+  "between": [
+   "Cart_Tongue_Feet.Face14",
+   "CartRail_Feet.Face6"
+  ]
+ },
+ {
+  "object": "M_09",
+  "check": 12,
+  "measure": "Squeeze pad to rail top (lid, X -14.7)",
+  "design_mm": null,
+  "measured_mm": 3.5,
+  "between": [
+   "Cart_Tongue_Lid.Face14",
+   "CartRail_Lid.Face5"
+  ]
+ },
+ {
+  "object": "M_10",
+  "check": 12,
+  "measure": "Squeeze pad to wall rear end (feet, Z 67)",
+  "design_mm": null,
+  "measured_mm": 6.775,
+  "between": [
+   "Cart_Tongue_Feet.Face13",
+   "Wall_Feet.Face1052"
+  ]
+ },
+ {
+  "object": "M_11",
+  "check": 12,
+  "measure": "Squeeze pad to wall rear end (lid, Z 67)",
+  "design_mm": null,
+  "measured_mm": 6.775,
+  "between": [
+   "Cart_Tongue_Lid.Face13",
+   "Wall_Lid.Face848"
+  ]
+ },
+ {
+  "object": "M_12",
+  "check": 18,
+  "measure": "Cartridge base on Floor (Z 2.15)",
+  "design_mm": 0.0,
+  "measured_mm": 0.0,
+  "between": [
+   "Floor.Face5",
+   "Cart_Body_Cut.Face10"
+  ]
+ },
+ {
+  "object": "M_13",
+  "check": 18,
+  "measure": "Floor top to pocket floor",
+  "design_mm": null,
+  "measured_mm": 41.839,
+  "between": [
+   "Floor.Face5",
+   "Cart_Body_Cut.Face14"
+  ]
+ },
+ {
+  "object": "M_14",
+  "check": 18,
+  "measure": "Floor top to pocket roof",
+  "design_mm": null,
+  "measured_mm": 54.739,
+  "between": [
+   "Floor.Face5",
+   "Cart_Body_Cut.Face16"
+  ]
+ },
+ {
+  "check": 18,
+  "measure": "Pocket centre above floor top (derived)",
+  "measured_mm": 48.289,
+  "port_centre_above_floor_mm": 48.29
+ }
+]

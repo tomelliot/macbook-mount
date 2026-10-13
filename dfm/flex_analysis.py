@@ -80,11 +80,11 @@ ax.plot(z, [r["insertion"]["ball_force_N"] for r in res], label="ball contact fo
 ax.set_yscale("log"); ax.set_xlabel("Arm root height Z (mm)"); ax.set_ylabel("Force (N), E = %.1f GPa assumed" % E_GPA)
 ax.set_title("Forces"); ax.legend(fontsize=8); ax.grid(True, which="both", lw=0.3, alpha=0.4)
 for ax in axs:
-    for r, ls in ((20, ":"), (40, "-")):
+    for r, ls in ((20, ":"), (30, "-")):
         ax.axvline(r, color="0.3", ls=ls, lw=0.8)
     ax.grid(True, lw=0.3, alpha=0.4)
-axs[0].text(20.3, 3.7, "rev 1 (Z 20)", fontsize=8); axs[0].text(40.3, 3.7, "now (Z 40)", fontsize=8)
-fig.suptitle("Cartridge flex arm (rev 4): 1.5 x 3.2 mm cantilever, ball at Z 52.5, pad at Z 67.5", fontsize=12)
+axs[0].text(20.3, 3.7, "rev 1 (Z 20)", fontsize=8); axs[0].text(30.3, 3.7, "now (Z 30)", fontsize=8)
+fig.suptitle("Cartridge flex arm (rev 5, root Z 30): 1.5 x 3.2 mm cantilever, ball at Z 52.5, pad at Z 67.5", fontsize=12)
 fig.tight_layout(rect=(0, 0, 1, 0.94))
 fig.savefig(EV / "05_flex_analysis.png", dpi=120)
 print(json.dumps(out, indent=1))

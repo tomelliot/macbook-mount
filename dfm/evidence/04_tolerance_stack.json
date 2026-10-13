@@ -62,27 +62,32 @@
  },
  "long_dimension_tolerance_mm": {
   "Mount length Y (311.5 mm)": 0.93,
-  "Mount height Z (232.0 mm)": 0.7
+  "Mount height Z (283.9 mm)": 0.85,
+  "Mount width X (71.7 mm)": 0.2
  },
  "post_print_drift_mm": {
   "1-3 days 0.15%": {
    "mount 311.5 mm": 0.47,
-   "cartridge 67 mm": 0.15
+   "cartridge 68.8 mm": 0.15
   },
   "3-7 days 0.20%": {
    "mount 311.5 mm": 0.62,
-   "cartridge 67 mm": 0.2
+   "cartridge 68.8 mm": 0.2
   }
  },
  "usb_port_alignment_z": {
-  "pocket centre above cartridge base": 40.44,
+  "port_centre_z": 50.44,
+  "pocket centre above cartridge base": 48.29,
+  "laptop_rests_on": "felt, 2.00 mm above floor top",
   "contributors": {
-   "cartridge base->pocket \u00b10.2": 0.2,
-   "floor top Z 4 \u00b10.2": 0.2
+   "cartridge base->pocket centre +/-0.2": 0.2,
+   "floor flatness, laptop seat to cartridge seat (common datum Z 2.15) +/-0.2": 0.2
   },
   "worst_case_mm": 0.4,
   "rss_mm": 0.28,
   "laptop_seating_bias_mm": -0.15,
-  "usb_c_plug_float_mm": 0.75
+  "usb_c_plug_float_mm": 0.75,
+  "felt_allowance_mm": 0.2,
+  "note": "The printed parts use 0.55 of the 0.75 mm plug float in the worst case; the felt under the laptop must hold 2.0 mm within the remaining +/-0.2 mm."
  }
 }

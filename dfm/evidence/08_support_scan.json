@@ -1,0 +1,1599 @@
+{
+ "build": "+Z, floor first, DeskPlate last",
+ "layer_mm": 0.25,
+ "overhang_limit_mm": 1.0,
+ "summary": {
+  "Wall inner-face window tops": {
+   "islands": 0,
+   "overhang_regions": 58,
+   "overhang_area_mm2": 1444.3,
+   "max_reach_mm": 14.5,
+   "z_range": [
+    19.03,
+    186.03
+   ]
+  },
+  "Cartridge zone": {
+   "islands": 0,
+   "overhang_regions": 3,
+   "overhang_area_mm2": 121.5,
+   "max_reach_mm": 4.27,
+   "z_range": [
+    56.53,
+    58.28
+   ]
+  },
+  "Wall top-row cell ceilings": {
+   "islands": 0,
+   "overhang_regions": 30,
+   "overhang_area_mm2": 1471.9,
+   "max_reach_mm": 5.75,
+   "z_range": [
+    225.78,
+    225.78
+   ]
+  },
+  "Slot ceiling under the riser": {
+   "islands": 0,
+   "overhang_regions": 1,
+   "overhang_area_mm2": 4739.6,
+   "max_reach_mm": 9.25,
+   "z_range": [
+    228.03,
+    228.03
+   ]
+  },
+  "Riser top-row cell ceilings": {
+   "islands": 0,
+   "overhang_regions": 8,
+   "overhang_area_mm2": 8591.3,
+   "max_reach_mm": 17.75,
+   "z_range": [
+    275.78,
+    275.78
+   ]
+  },
+  "DeskPlate overhang": {
+   "islands": 0,
+   "overhang_regions": 2,
+   "overhang_area_mm2": 9429.2,
+   "max_reach_mm": 35.0,
+   "z_range": [
+    278.03,
+    278.03
+   ]
+  }
+ },
+ "regions": [
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    37.57,
+    64.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    70.32,
+    71.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    77.57,
+    104.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    110.32,
+    111.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    117.57,
+    144.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    150.32,
+    151.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    157.57,
+    184.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    230.32,
+    231.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    237.57,
+    264.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    270.32,
+    271.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    277.57,
+    304.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    190.32,
+    191.57
+   ],
+   "area_mm2": 2.6,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    197.57,
+    224.32
+   ],
+   "area_mm2": 47.2,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    310.32,
+    311.57
+   ],
+   "area_mm2": 2.6,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    37.57,
+    64.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    70.32,
+    71.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    77.57,
+    104.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    110.32,
+    111.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    117.57,
+    144.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    150.32,
+    151.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    157.57,
+    184.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    190.32,
+    191.57
+   ],
+   "area_mm2": 3.0,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    197.57,
+    224.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    230.32,
+    231.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    237.57,
+    264.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    270.32,
+    271.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    277.57,
+    304.32
+   ],
+   "area_mm2": 54.0,
+   "max_reach_mm": 14.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 19.03,
+   "x": [
+    9.58,
+    11.58
+   ],
+   "y": [
+    310.32,
+    311.57
+   ],
+   "area_mm2": 3.4,
+   "max_reach_mm": 1.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Cartridge zone",
+   "z": 56.53,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    318.07,
+    332.57
+   ],
+   "area_mm2": 50.2,
+   "max_reach_mm": 4.27
+  },
+  {
+   "kind": "overhang",
+   "zone": "Cartridge zone",
+   "z": 56.53,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    318.07,
+    332.57
+   ],
+   "area_mm2": 49.6,
+   "max_reach_mm": 4.27
+  },
+  {
+   "kind": "overhang",
+   "zone": "Cartridge zone",
+   "z": 58.28,
+   "x": [
+    -3.92,
+    2.08
+   ],
+   "y": [
+    316.57,
+    320.07
+   ],
+   "area_mm2": 21.7,
+   "max_reach_mm": 4.01
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    32.82,
+    36.32
+   ],
+   "area_mm2": 7.5,
+   "max_reach_mm": 3.0
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    44.57,
+    57.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    84.57,
+    97.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    124.57,
+    137.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    164.57,
+    177.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    204.57,
+    217.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    244.57,
+    257.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.67,
+    -11.92
+   ],
+   "y": [
+    284.57,
+    297.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    65.57,
+    76.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    105.57,
+    116.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    145.57,
+    156.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    185.57,
+    196.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    225.57,
+    236.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    265.57,
+    276.32
+   ],
+   "area_mm2": 19.2,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    -13.42,
+    -11.92
+   ],
+   "y": [
+    305.57,
+    312.07
+   ],
+   "area_mm2": 11.8,
+   "max_reach_mm": 4.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    32.82,
+    36.32
+   ],
+   "area_mm2": 7.5,
+   "max_reach_mm": 3.0
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    44.57,
+    57.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    65.57,
+    76.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    84.57,
+    97.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    105.57,
+    116.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    124.57,
+    137.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    145.57,
+    156.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    164.57,
+    177.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    185.57,
+    196.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    204.57,
+    217.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    225.57,
+    236.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    244.57,
+    257.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    265.57,
+    276.32
+   ],
+   "area_mm2": 22.0,
+   "max_reach_mm": 6.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    284.57,
+    297.32
+   ],
+   "area_mm2": 26.0,
+   "max_reach_mm": 7.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall inner-face window tops",
+   "z": 186.03,
+   "x": [
+    9.58,
+    11.33
+   ],
+   "y": [
+    305.57,
+    312.07
+   ],
+   "area_mm2": 13.5,
+   "max_reach_mm": 4.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    32.82,
+    35.82
+   ],
+   "area_mm2": 13.2,
+   "max_reach_mm": 2.51
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    44.32,
+    57.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    66.07,
+    75.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    84.32,
+    97.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    106.07,
+    115.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    124.32,
+    137.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    146.07,
+    155.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    164.32,
+    177.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    186.07,
+    195.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    204.32,
+    217.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    226.07,
+    235.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    244.32,
+    257.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    266.07,
+    275.82
+   ],
+   "area_mm2": 45.2,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    284.32,
+    297.57
+   ],
+   "area_mm2": 61.9,
+   "max_reach_mm": 5.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    -19.42,
+    -14.92
+   ],
+   "y": [
+    306.07,
+    314.32
+   ],
+   "area_mm2": 38.1,
+   "max_reach_mm": 5.01
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    33.07,
+    35.82
+   ],
+   "area_mm2": 12.4,
+   "max_reach_mm": 2.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    44.32,
+    57.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    66.07,
+    75.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    84.32,
+    97.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    106.07,
+    115.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    124.32,
+    137.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    146.07,
+    155.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    164.32,
+    177.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    186.07,
+    195.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    204.32,
+    217.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    226.07,
+    235.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    244.32,
+    257.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    266.07,
+    275.82
+   ],
+   "area_mm2": 42.9,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    284.32,
+    297.57
+   ],
+   "area_mm2": 58.6,
+   "max_reach_mm": 5.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Wall top-row cell ceilings",
+   "z": 225.78,
+   "x": [
+    12.83,
+    17.08
+   ],
+   "y": [
+    306.07,
+    314.32
+   ],
+   "area_mm2": 36.1,
+   "max_reach_mm": 5.01
+  },
+  {
+   "kind": "overhang",
+   "zone": "Slot ceiling under the riser",
+   "z": 228.03,
+   "x": [
+    -9.17,
+    7.08
+   ],
+   "y": [
+    27.07,
+    314.07
+   ],
+   "area_mm2": 4739.6,
+   "max_reach_mm": 9.25
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    32.07,
+    47.32
+   ],
+   "area_mm2": 569.6,
+   "max_reach_mm": 8.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    54.32,
+    87.57
+   ],
+   "area_mm2": 1213.0,
+   "max_reach_mm": 17.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    94.32,
+    127.57
+   ],
+   "area_mm2": 1213.0,
+   "max_reach_mm": 17.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    134.57,
+    167.57
+   ],
+   "area_mm2": 1221.9,
+   "max_reach_mm": 17.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    174.32,
+    207.32
+   ],
+   "area_mm2": 1221.9,
+   "max_reach_mm": 17.75
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    214.32,
+    247.57
+   ],
+   "area_mm2": 1213.0,
+   "max_reach_mm": 17.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    254.32,
+    287.57
+   ],
+   "area_mm2": 1213.0,
+   "max_reach_mm": 17.5
+  },
+  {
+   "kind": "overhang",
+   "zone": "Riser top-row cell ceilings",
+   "z": 275.78,
+   "x": [
+    -19.42,
+    17.08
+   ],
+   "y": [
+    294.32,
+    314.32
+   ],
+   "area_mm2": 725.9,
+   "max_reach_mm": 11.0
+  },
+  {
+   "kind": "overhang",
+   "zone": "DeskPlate overhang",
+   "z": 278.03,
+   "x": [
+    18.33,
+    52.08
+   ],
+   "y": [
+    31.32,
+    168.82
+   ],
+   "area_mm2": 4625.4,
+   "max_reach_mm": 35.0
+  },
+  {
+   "kind": "overhang",
+   "zone": "DeskPlate overhang",
+   "z": 278.03,
+   "x": [
+    18.33,
+    52.08
+   ],
+   "y": [
+    173.32,
+    315.82
+   ],
+   "area_mm2": 4803.8,
+   "max_reach_mm": 35.0
+  }
+ ]
+}

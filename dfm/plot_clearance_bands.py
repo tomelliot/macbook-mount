@@ -11,15 +11,14 @@ EV = Path(__file__).parent / "evidence"
 TOL = 0.2          # JLC SLA model tolerance within 100 mm, each part
 RULE_MOVING, RULE_ASSEMBLY = 0.5, 0.2
 
-measured = {r["check"]: r.get("measured_mm") for r in json.loads((EV / "03_clearances.json").read_text())}
+measured = {r["measure"]: r["measured_mm"] for r in json.loads((EV / "03_measures.json").read_text()) if "object" in r}
 # (label, measured per-face gap, faces sharing the tolerance, rule, proposed per-face gap)
 # separate prints: JLC "assembled" rule (0.2) applies; the 0.5 "moving" rule is shown for reference (print-in-place)
 rows = [
-    ("Tongue Y faces (front/rear)", measured["Tongue to groove, front face (feet side, Z 10)"], 2, RULE_ASSEMBLY, None),
-    ("Tongue tip to groove bottom (X)", measured["Tongue tip to groove bottom (feet side, Z 10)"], 2, RULE_ASSEMBLY, None),
-    ("Flex arm to groove bottom (X)", measured["Flex arm to groove bottom (feet side, Z 45)"], 2, RULE_ASSEMBLY, None),
-    ("Squeeze pad to wall (X)", measured["Squeeze pad to wall face (feet side, Y 328, Z 67)"], 1, RULE_ASSEMBLY, None),
-    ("Cartridge to RearStop (Y)", measured["Cartridge body to RearStop (Z 10)"], 1, RULE_ASSEMBLY, None),
+    ("Tongue Y faces (front/rear)", measured["Tongue to groove, front face (feet, Z 10)"], 2, RULE_ASSEMBLY, None),
+    ("Tongue tip and arm to groove bottom (X)", measured["Tongue tip and arm to groove bottom (feet, Z 10)"], 2, RULE_ASSEMBLY, None),
+    ("Squeeze pad to rail top (Z)", measured["Squeeze pad to rail top (feet, X 12.5)"], 1, RULE_ASSEMBLY, None),
+    ("Cartridge to RearStop (Y)", measured["Cartridge front to RearStop (Z 10)"], 1, RULE_ASSEMBLY, None),
 ]
 REV1 = 0.25  # rev 1-3 sliding clearance, shown faded for comparison
 
@@ -42,7 +41,7 @@ for i, (label, gap, faces, rule, proposed) in enumerate(rows):
     ax.plot([rule, rule], [y - 0.3, y + 0.42], color="k", ls="--", lw=1)
     ax.text(rule, y + 0.47, "JLC assembled %.1f" % rule, ha="center", fontsize=7)
     ax.plot([RULE_MOVING, RULE_MOVING], [y - 0.3, y + 0.42], color="0.6", ls=":", lw=1)
-    if i < 3:
+    if i < 2:
         olo, ohi = band(REV1, faces)
         ax.plot([olo, ohi], [y - 0.15, y - 0.15], color="#d7263d", lw=8, solid_capstyle="butt", alpha=0.2)
         ax.plot(REV1, y - 0.15, "o", mfc="white", mec="0.5", ms=5)
@@ -61,7 +60,7 @@ ax.set_xlim(-0.1, 1.45)
 ax.set_ylim(0.3, len(rows) + 0.8)
 ax.set_xlabel("Clearance per face (mm)")
 ax.grid(True, axis="x", lw=0.3, alpha=0.5)
-ax.set_title("Check 10 (rev 4): clearance per face vs JLC SLA 'assembled parts' rule (0.2 mm, dashed); "
+ax.set_title("Check 10 (rev 5, values from FreeCAD Measure objects): clearance per face vs JLC SLA 'assembled parts' rule (0.2 mm, dashed); "
              "dotted grey = 0.5 mm 'moving parts' rule (print-in-place)\nbar = worst-case range (±0.2 mm on each part), dot = nominal, "
              "faded bar = rev 3\nred: nominal below rule · yellow: nominal meets rule, worst case below it · green: worst case meets rule", fontsize=10)
 fig.tight_layout()
