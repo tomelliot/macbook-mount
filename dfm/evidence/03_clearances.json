@@ -18,10 +18,10 @@
   "measured_mm": 1.102
  },
  {
-  "check": "Laptop end to RearStop",
+  "check": "Laptop end to RearStop (flush)",
   "class": "fit",
-  "design_mm": 2.0,
-  "measured_mm": 2.0
+  "design_mm": 0.0,
+  "measured_mm": 0.0
  },
  {
   "check": "Detent ball vs hole edge (lid side) - interference = preload",
@@ -34,5 +34,16 @@
   "class": "preload",
   "design_mm": 0.3,
   "measured_overlap_mm3": 0.1696
+ },
+ {
+  "check": "Cartridge print body vs mount print body - total overlap",
+  "class": "preload",
+  "measured_overlap_mm3": 0.3393
+ },
+ {
+  "check": "Laptop mesh points inside the mount (struts removed)",
+  "class": "fit",
+  "measured_points": 0,
+  "of_points": 5983
  }
 ]

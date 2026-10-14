@@ -61,17 +61,17 @@
   "note": "at \u00d82.95 the ball (1.45 mm radius at the groove plane) no longer seats on the hole edge: no preload, ball floats about \u00b10.03 mm"
  },
  "long_dimension_tolerance_mm": {
-  "Mount length Y (311.5 mm)": 0.93,
+  "Mount length Y (314.2 mm)": 0.94,
   "Mount height Z (283.9 mm)": 0.85,
   "Mount width X (71.7 mm)": 0.2
  },
  "post_print_drift_mm": {
   "1-3 days 0.15%": {
-   "mount 311.5 mm": 0.47,
+   "mount 314.2 mm": 0.47,
    "cartridge 68.8 mm": 0.15
   },
   "3-7 days 0.20%": {
-   "mount 311.5 mm": 0.62,
+   "mount 314.2 mm": 0.63,
    "cartridge 68.8 mm": 0.2
   }
  },

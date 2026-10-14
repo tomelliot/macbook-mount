@@ -10,4 +10,4 @@ freecad-mcp/
 __pycache__/
 
 # Build outputs (BREP, logs)
-build/out/
+cad/out/

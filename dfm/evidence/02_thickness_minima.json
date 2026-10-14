@@ -1,10 +1,10 @@
 {
  "USBC_Cartridge_Rounded": {
   "x": {
-   "thickness_mm": 1.351,
+   "thickness_mm": 1.202,
    "ray_u": 330.489,
    "ray_w": 30.164,
-   "segment_start": -13.093
+   "segment_start": -12.944
   },
   "y": {
    "thickness_mm": 1.662,
@@ -27,16 +27,16 @@
    "segment_start": -15.493
   },
   "y": {
-   "thickness_mm": 0.033,
-   "ray_u": -19.479,
-   "ray_w": 55.164,
-   "segment_start": 316.202
+   "thickness_mm": 2.308,
+   "ray_u": -7.479,
+   "ray_w": 1.164,
+   "segment_start": 27.092
   },
   "z": {
-   "thickness_mm": 2.4,
-   "ray_u": -9.479,
-   "ray_w": 33.014,
-   "segment_start": 228.0
+   "thickness_mm": 0.007,
+   "ray_u": 17.021,
+   "ray_w": 209.014,
+   "segment_start": 274.704
   }
  }
 }

@@ -1,6 +1,6 @@
 # DFM checklist: DeskMount for JLC3DP SLA (resin)
 
-- **Parts:** `Mount_Rounded` (mount body) and `USBC_Cartridge_Rounded` (removable USB-C cartridge), the print bodies in `Print_Bodies` of `DeskMount.FCStd`. They are rebuilt from the editable parts by `build/rebuild_print_bodies.sh`.
+- **Parts:** `Mount_Rounded` (mount body) and `USBC_Cartridge_Rounded` (removable USB-C cartridge), the print bodies in `Print_Bodies` of `DeskMount.FCStd`. They recompute from the editable parts in the model (see the README).
 - **Process:** JLC3DP SLA resin.
 - **Print orientation:** mount with DeskPlate at the top (+Z build: floor first, DeskPlate last); cartridge upright, pad end to the platform.
 - **Rules source:** [JLC3DP 3D Printing Design Guideline](https://jlc3dp.com/help/article/3D-Printing-Design-Guideline), fetched 2026-10-07.
@@ -123,7 +123,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
 - **Constraint:** each arm sits inside a 2.0 mm deep groove, with 0.4 mm clearance to the groove bottom. It can't get thicker without changing the rails.
 - **Action:** deepen the grooves to 2.5 mm and thicken the arms to 2.0 mm.
   - The rail behind the groove would then be 1.5 mm, below check 4's 2.0 mm. Add a 0.5 mm boss on the outside of the rail at the groove (Y 328–336) to keep 2.0 mm.
-  - Re-run `flex_analysis.py`: a 2.0 mm arm raises root strain by a third.
+  - Re-run `calcs.py`: a 2.0 mm arm raises root strain by a third.
   - Or ask JLC to accept 1.5 mm for a tough resin.
 - **Evidence:** [`02_thickness_map_cartridge.png`](evidence/02_thickness_map_cartridge.png), [`03_clearance_sections.pdf`](evidence/03_clearance_sections.pdf) (section B-B).
 
@@ -181,7 +181,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
   - Laptop above the floor top: 2.00 mm, for the felt dots on the three floor discs.
 - **No clash:** no point of the laptop mesh is inside the mount with the breakaway struts removed (0 of 4,352).
 - **Rails:** the rubber feet run along solid rails (Z 19–44 and Z 186–228), so they can't drop into a grid cell during insertion.
-- **Evidence:** [`03_clearances.json`](evidence/03_clearances.json) (Python probe: the laptop is a mesh, which FreeCAD Measure can't link to), [`09_mount_structure.svg`](evidence/09_mount_structure.svg).
+- **Evidence:** [`03_clearances.json`](evidence/03_clearances.json) (Python probe: the laptop is a mesh, which FreeCAD Measure can't link to), [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf).
 
 ### 14. Embossed / engraved detail: PASS
 
@@ -211,7 +211,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
   - **Fillets:** R2 on the bay's inside corners, R1.5 on cell corners and outer edges.
   - **Struts:** 10 breakaway struts hold the slot width through printing and curing, 5 at the front entry and 5 under the middle gusset.
 - **Order note:** ask JLC to leave the 10 wall struts in place through post-cure and to remove only their own supports. Clip the struts after curing.
-- **Evidence:** [`09_mount_structure.svg`](evidence/09_mount_structure.svg) (Wall_Feet grid), [`02_thickness_map_mount.png`](evidence/02_thickness_map_mount.png), [`01_mount_iso.png`](evidence/01_mount_iso.png).
+- **Evidence:** [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf) (Wall_Feet grid), [`02_thickness_map_mount.png`](evidence/02_thickness_map_mount.png), [`01_mount_iso.png`](evidence/01_mount_iso.png).
 
 ### 18. USB-C port alignment stack (Z): PASS
 
@@ -301,35 +301,26 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
 | [`02_thickness_map_mount.png`](evidence/02_thickness_map_mount.png), [`02_thickness_map_cartridge.png`](evidence/02_thickness_map_cartridge.png) | Ray-scan wall-thickness maps, colour-banded | Python |
 | [`02_thickness_minima.json`](evidence/02_thickness_minima.json), [`02_thickness_scan_mount.json`](evidence/02_thickness_scan_mount.json), [`02_thickness_scan_cartridge.json`](evidence/02_thickness_scan_cartridge.json) | Thinnest wall per part and axis; raw scan data | Python |
 | [`03_measures.json`](evidence/03_measures.json) | Values of the 14 Measure objects in `DFM_Measures`, with the faces they link | FreeCAD GUI |
-| [`03_clearance_sections.pdf`](evidence/03_clearance_sections.pdf), [`.svg`](evidence/03_clearance_sections.svg) | TechDraw sheet `DFM_Clearances`: sections A-A to E-E of the cartridge zone, 14 dimensions on model edges | FreeCAD GUI |
+| [`03_clearance_sections.pdf`](evidence/03_clearance_sections.pdf) | TechDraw sheet `DFM_Clearances`: sections A-A to E-E of the cartridge zone, 14 dimensions on model edges | FreeCAD GUI |
 | [`03_clearances.json`](evidence/03_clearances.json) | Laptop fit (mesh) and detent overlap volume | FreeCAD (headless) |
 | [`04_tolerance_stack.json`](evidence/04_tolerance_stack.json) | Worst-case clearances, detent preload range, long-dimension and drift tolerances, port alignment with felt allowance | Python |
 | [`05_flex_analysis.png`](evidence/05_flex_analysis.png), [`05_flex_analysis.json`](evidence/05_flex_analysis.json) | Flex arm root strain, release travel vs flex gap, forces vs root height | Python |
 | [`06_clearance_bands.png`](evidence/06_clearance_bands.png) | Per-face clearance from the Measure values, nominal and worst case vs JLC rule | Python |
-| [`07_breakaway_supports.png`](evidence/07_breakaway_supports.png) | Cartridge print ties on the flex arms (rev 4) | Python |
+| [`07_breakaway_supports.png`](evidence/07_breakaway_supports.png) | Cartridge print ties on the flex arms (rev 4, archived: the ties have not changed since) | Python (rev 4) |
 | [`08_support_map.png`](evidence/08_support_map.png), [`08_support_scan.json`](evidence/08_support_scan.json) | Islands and unsupported overhangs for the +Z build, by region | Python |
-| [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf), [`.svg`](evidence/09_mount_structure.svg) | TechDraw sheet `DFM_Mount_Structure`: Wall_Feet grid | FreeCAD GUI |
+| [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf) | TechDraw sheet `DFM_Mount_Structure`: Wall_Feet grid | FreeCAD GUI |
 
 ## How the evidence was made
 
-0. If the editable parts changed, rebuild the print bodies: `build/rebuild_print_bodies.sh`, then `build/load_print_bodies.py`.
-1. `freecadcmd dfm/fc_dfm_run.py` (env `DFM_TMP` = scratch dir) opens the saved model. It:
-   - exports both STEP files from the print bodies;
-   - writes `01_build_volume.json` and `03_clearances.json` (through [`fc_clearance_probe.py`](fc_clearance_probe.py));
-   - writes the STL meshes for the scans (as used, and the mount as printed);
-   - cuts the cartridge-zone clip for the clearance sheet.
-2. In the FreeCAD GUI, `exec(open("dfm/fc_evidence_export.py").read())` ([`fc_evidence_export.py`](fc_evidence_export.py)):
-   - loads the clip;
-   - rebuilds the Measure objects through [`fc_measures.py`](fc_measures.py);
-   - re-anchors the sheet dimensions by geometry through [`fc_dims_anchor.py`](fc_dims_anchor.py) (TechDraw stores them as edge indices, which change with the model);
-   - saves the `01_*.png` views;
-   - exports both TechDraw sheets as PDF and SVG.
-3. `uv run --with numpy ray_thickness.py $DFM_TMP` runs the thickness scan ([`ray_thickness.py`](ray_thickness.py)).
-4. `uv run --with numpy --with scipy --with matplotlib support_scan.py $DFM_TMP` runs the support scan ([`support_scan.py`](support_scan.py)).
-5. Plots run with `uv run --with matplotlib`:
-   - [`plot_thickness.py`](plot_thickness.py)
-   - [`flex_analysis.py`](flex_analysis.py)
-   - [`plot_clearance_bands.py`](plot_clearance_bands.py)
-6. `python3 tolerance_stack.py $DFM_TMP/facts.json` ([`tolerance_stack.py`](tolerance_stack.py)) updates `04_tolerance_stack.json`.
+0. If the editable parts changed, rebuild their rounding chains with [`cad/build_rounding.sh`](../cad/build_rounding.sh) and reopen the model.
+1. `dfm/run_dfm.sh headless` (scratch dir `DFM_TMP`, default `/tmp/deskmount_dfm`):
+   - [`fc_headless.py`](fc_headless.py) (FreeCAD, headless) exports both STEP files from the print bodies, writes `01_build_volume.json` and `03_clearances.json`, the STL meshes for the scans (as used, and the mount as printed), the cartridge-zone clip for the clearance sheet, and the facts for the calculations;
+   - [`mesh_scans.py`](mesh_scans.py) runs the thickness scan (`02_thickness_scan_*.json`) and the support scan (`08_*`);
+   - [`calcs.py`](calcs.py) updates `04_tolerance_stack.json` and makes `05_flex_analysis.*`.
+2. In the FreeCAD GUI, `exec(open("dfm/fc_gui.py").read())` ([`fc_gui.py`](fc_gui.py)):
+   - rebuilds the Measure objects in `DFM_Measures` and writes `03_measures.json`;
+   - loads the clip and re-anchors the sheet dimensions by geometry (TechDraw stores them as edge indices, which change with the model);
+   - saves the `01_*.png` views and exports both TechDraw sheets as PDF.
+3. `dfm/run_dfm.sh plots` runs [`plots.py`](plots.py): the thickness maps (`02_thickness_map_*.png`, `02_thickness_minima.json`) and the clearance bands (`06`).
 
-Run heavy geometry headless: booleans on the full mount have crashed the GUI. [`plot_breakaway.py`](plot_breakaway.py) made `07` in rev 4 and needs inline section data to re-run.
+Run heavy geometry headless: booleans on the full mount have crashed the GUI.

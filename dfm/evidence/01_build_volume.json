@@ -2,11 +2,11 @@
  "Mount_Rounded": {
   "bbox_xyz_mm": [
    71.74,
-   311.5,
+   314.23,
    283.85
   ],
-  "volume_cm3": 598.7,
-  "area_cm2": 4133.0,
+  "volume_cm3": 599.88,
+  "area_cm2": 4130.4,
   "solids": 1,
   "shells_per_solid": [
    1
@@ -20,11 +20,11 @@
  "USBC_Cartridge_Rounded": {
   "bbox_xyz_mm": [
    36.74,
-   17.78,
+   20.5,
    68.85
   ],
-  "volume_cm3": 16.53,
-  "area_cm2": 66.0,
+  "volume_cm3": 18.74,
+  "area_cm2": 69.6,
   "solids": 1,
   "shells_per_solid": [
    1
