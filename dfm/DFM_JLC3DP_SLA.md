@@ -13,6 +13,15 @@
 - **Check 6 (FAIL):** the cartridge's 1.5 mm flex arms against JLC's "more than 1.5 mm" snap rule.
 - **Check 23 (WARN, new):** no islands in the print orientation, but the DeskPlate overhang and several flat ceilings need supports.
 
+Revision 7 (2026-10-20): headless checks re-run on a new mount body. The GUI evidence (views, clearance sheets, TechDraw) is still rev 6.
+- **Mount changes since rev 6:**
+  - One body, `MountBody` (`cad/mount_body.py`), replaces the separate walls, riser, floor, RearStop, DeskPlate and gussets. The riser is open at the front and back over the slot, and the plate between the riser and the cavity is gone.
+  - The cells are cut with rounded tools (R1.5 corners, R0.4 lips on every mouth), and fixed cutters and fills round the outer edges and inside corners. The wall cells' bottom row starts 0.5 mm higher (Z 4.65) to make room for the lips above the floor coves.
+  - RearStop is a grid of its own cells; the wall cells no longer cut through it.
+  - 20 breakaway struts (4 rows of 5) replace 10; the new rows at Y 91 and Y 251 halve the two 140 mm gaps.
+- **Measured (rev 7):** mount 567.9 cm³, one solid, valid and self-intersection free; lid 2.0, case 2.0, feet 1.102, RearStop 0.0 mm; detent preload overlap 0.17 mm³ per side; 0 of 5,983 laptop points inside the mount.
+- **Check 4 needs a re-check:** the new thickness scan finds sub-millimetre segments where a skin's top, a cell and the cavity ceiling meet (X −11.5 and 9.5, Z 228.2–228.7) and at the front gusset's tip (0.66 mm). Some may be chords of rounds that the scan's 30° rule does not drop.
+
 Revision 6 (2026-10-13): re-run on the print bodies.
 - **Mount changes since rev 5:**
   - The riser is the wall grid continued up to DeskPlate, across the gap between the walls; the honeycomb riser and TopPlate are gone.
@@ -179,7 +188,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
   - Rubber feet to Wall_Feet: 1.10 mm.
   - Laptop end to RearStop: 2.00 mm.
   - Laptop above the floor top: 2.00 mm, for the felt dots on the three floor discs.
-- **No clash:** no point of the laptop mesh is inside the mount with the breakaway struts removed (0 of 4,352).
+- **No clash:** no point of the laptop mesh is inside the mount with the breakaway struts removed (0 of 5,983).
 - **Rails:** the rubber feet run along solid rails (Z 19–44 and Z 186–228), so they can't drop into a grid cell during insertion.
 - **Evidence:** [`03_clearances.json`](evidence/03_clearances.json) (Python probe: the laptop is a mesh, which FreeCAD Measure can't link to), [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf).
 
@@ -209,8 +218,9 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
   - **Solid rails and band:** Z 19–44 and Z 186–228 carry the felt and the rubber feet. They are 2.4 mm plates with the grid continued as ribs behind them.
   - **DeskPlate:** the one large flat panel (71.7 × 293 × 4 mm). The riser grid backs it across its full width, and three gussets brace the 35 mm overhang.
   - **Fillets:** R2 on the bay's inside corners, R1.5 on cell corners and outer edges.
-  - **Struts:** 10 breakaway struts hold the slot width through printing and curing, 5 at the front entry and 5 under the middle gusset.
-- **Order note:** ask JLC to leave the 10 wall struts in place through post-cure and to remove only their own supports. Clip the struts after curing.
+  - **Struts (rev 7):** 20 breakaway struts hold the slot width through printing and curing, in rows of 5 at the front entry and at Y 91, 171 and 251.
+  - **Warp screen (rev 7, [`10_warp_screen.json`](evidence/10_warp_screen.json)):** with the struts in, no point of the walls is more than 41.8 mm from a tie (72.5 mm with 10 struts). With the struts clipped, the front end is 113 mm from the nearest tie (RearStop), so the walls rely on the grid there once the struts are off.
+- **Order note:** ask JLC to leave the 20 wall struts in place through post-cure and to remove only their own supports. Clip the struts after curing.
 - **Evidence:** [`09_mount_structure.pdf`](evidence/09_mount_structure.pdf) (Wall_Feet grid), [`02_thickness_map_mount.png`](evidence/02_thickness_map_mount.png), [`01_mount_iso.png`](evidence/01_mount_iso.png).
 
 ### 18. USB-C port alignment stack (Z): PASS
@@ -236,7 +246,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
 
 ### 21. Resin volume / cost: WARN
 
-- **Measured:** the mount is 598.7 cm³ (792 cm³ in rev 5), including 4.3 cm³ of struts.
+- **Measured (rev 7):** the mount is 567.9 cm³ (598.7 cm³ in rev 6), including 8.6 cm³ of struts. The by-part list below is rev 6.
 - **By part,** rounded, before the fuse:
   - each wall: 156.8 cm³;
   - riser grid: 149.7 cm³;
@@ -285,7 +295,7 @@ The guideline gives no overhang or bridge limits. Check 23 uses the common SLA r
 2. **Check 6:** thicken the flex arms to 2.0 mm with 2.5 mm grooves and an outside boss, or get JLC to accept 1.5 mm in a tough resin.
 3. **Check 23:** peak the flat ceilings at 45°, and state the orientation (DeskPlate up) on the order.
 4. **Check 20:** specify a tough resin for the cartridge, or print it in FDM PETG.
-5. **Checks 17 and 19, order notes:** keep the 10 wall struts through post-cure, and list the support-free faces.
+5. **Checks 17 and 19, order notes:** keep the 20 wall struts through post-cure, and list the support-free faces.
 6. **Check 18:** measure the felt under the laptop after compression. It must be 1.8–2.2 mm.
 7. **Check 9:** after the first print, gauge the detent holes.
 8. **Check 11 (optional):** open the RearStop gap to 0.6 mm.

@@ -4,16 +4,16 @@
    "thickness_mm": 1.202,
    "ray_u": 330.489,
    "ray_w": 30.164,
-   "segment_start": -12.944
+   "segment_start": 9.497
   },
   "y": {
-   "thickness_mm": 1.662,
-   "ray_u": 11.771,
-   "ray_w": 51.664,
-   "segment_start": 331.169
+   "thickness_mm": 1.415,
+   "ray_u": 1.021,
+   "ray_w": 47.164,
+   "segment_start": 339.617
   },
   "z": {
-   "thickness_mm": 1.503,
+   "thickness_mm": 1.502,
    "ray_u": -13.479,
    "ray_w": 333.239,
    "segment_start": 51.749
@@ -21,22 +21,22 @@
  },
  "Mount_Rounded": {
   "x": {
-   "thickness_mm": 2.0,
-   "ray_u": 330.014,
-   "ray_w": 4.164,
-   "segment_start": -15.493
+   "thickness_mm": 0.656,
+   "ray_u": 28.014,
+   "ray_w": 237.164,
+   "segment_start": 18.248
   },
   "y": {
-   "thickness_mm": 2.308,
-   "ray_u": -7.479,
-   "ray_w": 1.164,
-   "segment_start": 27.092
+   "thickness_mm": 0.323,
+   "ray_u": -11.479,
+   "ray_w": 228.164,
+   "segment_start": 42.946
   },
   "z": {
-   "thickness_mm": 0.007,
-   "ray_u": 17.021,
-   "ray_w": 209.014,
-   "segment_start": 274.704
+   "thickness_mm": 0.001,
+   "ray_u": 9.521,
+   "ray_w": 59.014,
+   "segment_start": 228.682
   }
  }
 }

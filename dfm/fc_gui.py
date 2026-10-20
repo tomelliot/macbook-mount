@@ -25,10 +25,9 @@ d = App.getDocument("DeskMount")
 def measures():
     """Live Measure::MeasureDistance objects linked to the source parts' faces. The group is rebuilt each run, because
     face numbers change when a part's shape is replaced."""
-    MOUNT = [d.getObject(n) for n in ("Wall_Lid", "Wall_Feet", "CartRail_Lid", "CartRail_Feet", "Floor", "RearStop")]
+    MOUNT = [d.getObject(n) for n in ("MountBody", "CartRail_Lid", "CartRail_Feet")]
     CART = [d.getObject(n) for n in ("Cart_Body_Cut", "Cart_Tongue_Lid", "Cart_Tongue_Feet", "Cart_Detent_Lid", "Cart_Detent_Feet")]
-    XL = d.getObject("Wall_Lid").Shape.BoundBox.XMax
-    XF = d.getObject("Wall_Feet").Shape.BoundBox.XMin
+    XL, XF = -11.493, 9.248             # the slot's faces (walls' inner faces): cad/mount_body.py XI0, XI1
     PORT_X = -0.919
 
     def hits(objs, a, b):

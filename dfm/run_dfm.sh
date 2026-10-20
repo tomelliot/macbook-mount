@@ -1,7 +1,7 @@
 #!/bin/sh
 # Regenerate the DFM evidence from the print bodies in DeskMount.FCStd (save the model first). Two stages, because the
 # measures, drawings and model views need the FreeCAD GUI:
-#   dfm/run_dfm.sh headless   STEP export, build volume, laptop fit, meshes, thickness and support scans, calculations
+#   dfm/run_dfm.sh headless   STEP export, build volume, laptop fit, meshes, thickness, support and warp scans, calculations
 #   then in the FreeCAD GUI:  exec(open("dfm/fc_gui.py").read())   (same DFM_TMP; default /tmp/deskmount_dfm)
 #   dfm/run_dfm.sh plots      thickness maps and clearance bands
 set -e
@@ -13,6 +13,7 @@ case ${1:-headless} in
     headless)
         "$FC" "$HERE/fc_headless.py" 2>&1 | grep -a -E "^(step|mesh|done|\{|\[)|Error|Traceback" || true
         uv run -q --with numpy --with scipy --with matplotlib python "$HERE/mesh_scans.py" "$DFM_TMP"
+        (cd "$HERE" && uv run -q --with numpy --with scipy --with matplotlib python warp_screen.py "$DFM_TMP" > /dev/null)
         uv run -q --with matplotlib python "$HERE/calcs.py" "$DFM_TMP/facts.json" > /dev/null
         echo "next: in the FreeCAD GUI, exec(open(\"$HERE/fc_gui.py\").read()), then dfm/run_dfm.sh plots"
         ;;

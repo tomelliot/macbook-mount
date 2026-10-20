@@ -7,35 +7,44 @@ Two printed parts:
 The laptop slides in end-first and plugs itself in. The design is complete in CAD. Open DFM items before ordering in SLA are listed at the end.
 
 **Files**
-- `DeskMount.FCStd`: FreeCAD model, in five groups. Everything from the source parts to the print bodies is a chain of features, so the print bodies recompute with the model.
-  - `Source`: the editable, unrounded parts, under the two assemblies `Mount_Fused` and `USBC_Cartridge`.
-  - `Rounding`: one `<part>_Rounded` feature per printed part, each the end of a short chain of fillets and cuts that rounds that part's edges, plus `Corner_Cutters` for the corners that span several parts. The chains hold fixed edge lists: after editing a part, rebuild its chain with `cad/build_rounding.sh <part>`.
+- `DeskMount.FCStd`: FreeCAD model, in five groups.
+  - `Source`: the unrounded parts, under the two assemblies `Mount_Fused` and `USBC_Cartridge`. In `Mount_Fused`:
+    - `MountBody` (walls, riser, floor, RearStop, DeskPlate, gussets), built by `cad/mount_body.py`. It is `MountSolid` (a PartDesign Body of the plain features) with `MountFills` (inside rounds) fused on, less `MountCellTools` (one rounded tool per lattice cell, plus the outer edge rounds).
+    - `CartRail_Lid`, `CartRail_Feet` and `Mount_Breakaway_Struts`.
+  - `Rounding`: one `<part>_Rounded` per printed part, a compound of the last of a short chain of stored shapes (fillets and cuts) that rounds the edges the part's tools did not. The chain does not recompute with the model: after a change, rebuild it with `cad/build_rounding.sh <part>`.
   - `Print_Bodies`: `Mount_Rounded`, a custom feature that fuses the rounded mount parts and rounds the corners that span several parts, and `USBC_Cartridge_Rounded`. Only these are shown on open.
   - `DFM`: live clearance measurements (`DFM_Measures`) and the dimensioned TechDraw sheets `DFM_Clearances` (cartridge-zone sections) and `DFM_Mount_Structure` (wall grid).
   - `Laptop`: the reference laptop mesh, not a printed part.
-- `export/DeskMount_mount.step`: mount body (Mount_Rounded), 71.7 × 314.2 × 283.9 mm, 599.9 cm³.
+- `export/DeskMount_mount.step`: mount body (Mount_Rounded), 71.7 × 314.2 × 283.9 mm, 567.9 cm³.
 - `export/DeskMount_usbc_cartridge.step`: cartridge (USBC_Cartridge_Rounded), 36.7 × 20.5 × 68.9 mm, 18.7 cm³.
 - `cad/`: the scripts behind the model's rounding and print bodies. Output and logs go to `cad/out/` (not in git).
   - `install.sh`: run once per machine. It puts a shim for `mount_fuse.py` in FreeCAD's user Mod folder, so FreeCAD can load it when it opens the model. Without it, `Mount_Rounded` loses its code on open; if the file is then saved, recreate the feature with `mount_fuse.create(doc)`.
-  - `rounding.py`: the edge rules and the chain builder. Each chain fillets the inside corners, cuts the cell mouths with rounded-lip cutters, fillets the remaining edges, and cuts any edge a fillet cannot round with a small edge cutter. Every step is tested for validity, self-intersections and the expected volume change.
-  - `build_rounding.sh`: builds chains headless and saves the model (close it in the GUI first, or reload it after). A wall takes about 30 minutes, the other parts seconds. `watch_build.sh` follows its log and reports stalls.
+  - `mount_body.py`: builds `MountBody` (`BUILD_BODY=1 freecadcmd cad/mount_body.py`, about 2 minutes) and saves the model. The cells and their rounds come from the lattice definition, so no search is needed for them:
+    - each cell tool is the R1.5 cell prism with an R0.4 lip at every face the cell opens on (walls, floor, RearStop);
+    - where a skin or the riser band clips a cell, the corner is R1.5 and the band's edge in the cell gets a lip;
+    - between the walls the cells are cut unclipped where the cavity and the riser openings are open, and their sides get R0.4 cutters where they cross the cavity ceiling and the openings' faces;
+    - fixed cutters round the straight outer edges (R1.5 bottom, DeskPlate top and tail-end edges, R0.4 tail top), and fills round the inside corners (R1.5 under DeskPlate, R0.5 at RearStop and the gusset roots, R0.4 at the cavity's top corners and the openings).
+  - `rounding.py`: rounds the edges the tools leave (about 1000 short edges on `MountBody`), and the other parts. The stages are: R1.5 concave and major edges, rounded-lip cutters on closed mouth loops, R0.4 on the rest, edge cutters, and a last R0.4 pass. Each stage tests its edges in 60 mm blocks in parallel `freecadcmd` workers (`round_check.py`), then checks the stage's own shape: validity, self-intersections (in crops), vertex tolerances and the expected volume change. A fillet that crashes OpenCascade ends only its worker. `cad/out/rounding_cache.json` keeps each stage's results, so a rebuild tests only edges that changed (`ROUND_NOCACHE=1` for a full search).
+  - `build_rounding.sh`: builds chains headless and saves the model (close it in the GUI first, or reload it after). `MountBody` takes about 20 minutes. It keeps the Mac awake while it runs, and a watchdog adds `WATCH` lines to the log every 5 minutes (CPU, minutes since the last line, and a stack sample when a step runs long).
   - `mount_fuse.py`: the `Mount_Rounded` feature (a fuse with a fuzzy tolerance, which FreeCAD's own fuse feature lacks) and its corner cutters.
-  - `generators.py`: the grid floor and the breakaway struts.
+  - `generators.py`: the breakaway struts.
+  - `recompute_mount.py`: recreates `Mount_Rounded` headless after a part changes, saves, and checks the feature reopens with its code.
 - `dfm/`: the JLC3DP SLA checklist `DFM_JLC3DP_SLA.md`, its `evidence/`, and the scripts that regenerate it. `run_dfm.sh` runs them (see the report's last section).
 - `docs/`: `LEARNINGS.md` (using an agent with FreeCAD for this design) and `journal/journal.db` (decisions and rationale; read it with the journal skill).
 - `reference/`: the original third-party desk mount STL.
 - `freecad-mcp/` (not in git): local clone of the FreeCAD MCP server used to drive the model; the Claude Code MCP config points here.
 
 **Workflow after a design change**
-1. Edit the source parts in `DeskMount.FCStd`, save, and close the model in the GUI.
-2. `cad/build_rounding.sh <changed parts>`. Reopen the model: the print bodies recompute.
+1. Close the model in the GUI. For the mount body, edit `cad/mount_body.py` and run `BUILD_BODY=1 freecadcmd cad/mount_body.py`; for the other parts, edit them in the model and save.
+2. `cad/build_rounding.sh <changed parts>`, then `freecadcmd cad/recompute_mount.py` (rebuilds `Mount_Rounded`).
 3. `dfm/run_dfm.sh headless`, then `dfm/fc_gui.py` in the GUI, then `dfm/run_dfm.sh plots`. Update the report.
 
 **How it holds the laptop**
 - The laptop stands on its hinge edge in a 20.74 mm slot, with 2 mm to each wall for felt pads.
 - The laptop sits on felt dots on three solid floor discs, 2 mm above the floor top.
 - The laptop's port end sits flush against RearStop, which sets insertion depth. The plug can sit up to 0.2 mm short of fully home.
-- RearStop's laptop-side face meets the walls, floor and slot ceiling with R0.5 inside rounds, so the laptop bears on the flat face even when pushed against one wall.
+- RearStop's laptop-side face meets the walls and floor with R0.5 inside rounds, so the laptop bears on the flat face even when pushed against one wall.
+- RearStop is a ±45° grid like the walls (2.4 mm ribs, R1.5 cell corners), one diamond wide: 8 diamonds up the centre and 7 half-diamonds against each wall. It is solid below Z 63 (the plug window and the zone in front of the cartridge) and in a 2.4 mm border along the walls and the slot ceiling. Every cell top is a 45° peak. The laptop's end bears on the ribs.
 - A 50 mm riser (Z 228–278) lifts the slot's entry clear of the desk's 50 mm under-support.
   - DeskPlate (Z 278–282, X −19.49 to 52.25) bonds to the desk with double-sided tape. It covers both walls and overhangs 35 mm past Wall_Feet.
   - Three 35 mm, 2.4 mm thick 45° gussets (the riser rib thickness) brace the overhang, at Y 27–29.4, 169.8–172.2 and 317.8–320.2. The outer two are flush with the front and back faces.
@@ -44,7 +53,7 @@ The laptop slides in end-first and plugs itself in. The design is complete in CA
 - **Walls:** a ±45° diamond grid. The ribs are 2.4 mm wide and 8 mm deep, with nodes 40 mm apart. The grid stiffens the walls against bowing and diagonal warp in SLA, and every section is 2.4 mm.
 - **Solid rails and band:** Z 19–44 and Z 186–228. They carry the rubber feet and the felt so nothing snags a cell. Each is a 2.4 mm plate with the grid continued as ribs behind it.
 - **Front frame:** 4 mm at the entry edge. A 2.4 mm cap closes the top of the rib layer.
-- **Riser (Riser_Grid):** the wall grid continues up to DeskPlate, and across the gap between the walls, growing from each wall to meet in the middle. It replaces the former honeycomb riser and TopPlate.
+- **Riser:** the wall grid continues up to DeskPlate and across the gap between the walls. Over the slot it is open at the front and back (4 mm openings), and a 2.4 mm band across it (Y 169.8–172.2) carries the middle gusset.
 - **Rear:** the grid continues to the back of both walls and is solid only where the cartridge needs it. Above Z 60.5 the walls, riser and DeskPlate end at RearStop's rear face (Y 320.22). Below Z 60.5 the walls, the cartridge rails and the floor run to Y 341.2, flush with the cartridge's back.
 - **Cartridge rails:** `CartRail_Lid` and `CartRail_Feet` (Y 316.2–341.2, Z −1.85 to 60.5) are separate objects from the walls, so they can be viewed and edited on their own. Their front lines up with RearStop's laptop-side face, so the wall grid ends on a solid face there.
 - **Floor:** the same diamond grid (40 mm pitch, 2.4 mm ribs, R1.5 cell corners). It is centred in the slot and lined up with the wall grid.
@@ -52,14 +61,15 @@ The laptop slides in end-first and plugs itself in. The design is complete in CA
   - The floor is solid behind RearStop, under the cartridge.
   - Three solid Ø20.74 mm discs (the full slot width) at Y 71, 171 and 271 take the felt dots. They are spaced evenly about the laptop's centre.
 - **Edges:**
-  - R1.5 on the outer extents: plate and wall corners, wall edges, DeskPlate corners, the full-height front and back corners, the floor's front edges, and the gussets' sloped edges.
-  - R0.4 on the remaining rib ridges.
-  - R1.5 on internal cell corners, or R0.4 where R1.5 does not fit.
-  - The ends of the rounds are rounded R0.4 where it fits.
-  - Each part is rounded before fusing. An edge that another part touches only at an end is rounded with its part; one that another part touches along its length is a join and stays sharp. Corners that span several parts are rounded after the fuse: outside corners with cutters (including DeskPlate's feet-side bottom edge, which also trims the gusset tips) and inside corners with fills (the R1.5 between the rail tops and the wall ends at Y 320.2).
-- **Print struts:** 10 breakaway struts tie the walls together during printing and curing.
-  - 5 are at the front entry (Y 27–31), to hold the slot width there. 5 are in line with them under the middle gusset (Y 169–173).
-  - Both rows sit at Z 25, 74.25, 114.25, 154.25 and 200. At Y 171 the necks land on rib nodes and solid bands.
+  - R1.5 on the outer extents: the bottom edges, DeskPlate's top edges, the tail's end edges, the full-height front and back corners, and the gussets' sloped edges.
+  - R0.4 on the cell mouths and the remaining rib ridges.
+  - R1.5 on cell corners, including where a skin or the riser band clips a cell. In the walls only the cell corners along X are inside rounds; the corners where the cells meet the skins' faces stay sharp.
+  - R0.5 at RearStop's inside corners and the gusset roots; R1.5 under DeskPlate on the feet side; R0.4 at the cavity's top corners and the openings' inside corners.
+  - Each part is rounded before fusing. An edge that another part touches along its length is a join and stays sharp. Corners that span several parts are rounded after the fuse: outside corners with cutters (including DeskPlate's feet-side bottom edge, which also trims the gusset tips) and inside corners with fills (the R1.5 between the rail tops and the wall ends at Y 320.2).
+  - About 390 mm of edge longer than 3 mm stays sharp. Most of it (about 300 mm) is at the rail grooves and the tail end, which the rail parts' rounding has not been rebuilt for yet.
+- **Print struts:** 20 breakaway struts tie the walls together during printing and curing.
+  - 4 rows of 5: at the front entry (Y 27–31), to hold the slot width there, and at Y 91, 171 (under the middle gusset) and 251. The rows at Y 91 and 251 halve the two 140 mm gaps between the entry and RearStop.
+  - All rows sit at Z 25, 74.25, 114.25, 154.25 and 200. Y 91, 171 and 251 are the same column of wall-grid nodes, so the necks land on rib nodes and solid bands.
   - Each strut is a Λ: two 45° arms, 4 mm thick, rising from each wall to an apex over the slot centre. A 1.5 × 1.5 mm breakaway neck sits at the lowest point of each arm, so the strut never starts as a floating island.
   - Keep the struts through post-cure, then clip them off.
 
@@ -100,9 +110,9 @@ Print the cartridge upright, pad end to the platform.
 - The flat ceilings in the table above: make them 45° peaks, or accept JLC's supports there.
 - Specify the orientation on the JLC order. JLC chooses orientation and supports itself unless told.
 - The flex arms are 1.5 mm thick, and JLC asks for more than 1.5 mm on snaps (DFM check 6, FAIL).
-- A 0.03 mm skin through both walls at Y 316.2, Z 55, at the bottom of the rear access frame (DFM check 4, FAIL).
-- The gusset tips meet the riser at a sharp 45° edge.
-- Order notes: keep the 10 wall struts through post-cure, and list the support-free sliding faces.
+- Thin sections on the new mount body (DFM check 4, to re-check): the thickness scan finds sub-millimetre segments where a skin's top, a cell and the cavity ceiling meet (X −11.5 and 9.5, Z 228.2–228.7) and at the front gusset's tip (0.66 mm). The 0.03 mm skin at Y 316.2, Z 55 (rev 6) has not been re-checked.
+- Rebuild the rail parts' rounding on the new body, for the sharp edges at the rail grooves and the tail end.
+- Order notes: keep the 20 wall struts through post-cure, and list the support-free sliding faces.
 - The felt under the laptop must measure 1.8–2.2 mm after compression (port alignment).
 - The rubber feet are 1.1 mm from Wall_Feet, so felt thicker than that will press on the feet.
 - Nothing clamps the cable, so the plug relies on friction when the laptop is pulled out.

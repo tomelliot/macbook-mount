@@ -54,16 +54,16 @@ for name, s in (("mount", mount_use), ("cartridge", cart_use), ("mount_print", m
     print("mesh", name, m.CountFacets, flush=True)
 
 # ---- cartridge-zone clip for the TechDraw sheet (a boolean on the full mount has crashed the GUI) ----
-mount.Shape.common(Part.makeBox(42, 30, 82, V(-22, 312, -2))).exportBrep(TMP + "/clip_cart_zone.brep")
+cart_zone = mount.Shape.common(Part.makeBox(42, 30, 82, V(-22, 312, -2)))    # holds the whole cartridge
+cart_zone.exportBrep(TMP + "/clip_cart_zone.brep")
 
 # ---- checks 10-13: laptop fit from the laptop mesh points, detent preload ----
-XL = d.getObject("Wall_Lid").Shape.BoundBox.XMax
-XF = d.getObject("Wall_Feet").Shape.BoundBox.XMin
+XL, XF = -11.493, 9.248                 # the slot's faces (walls' inner faces): cad/mount_body.py XI0, XI1
 # Mesh.Points already include each mesh's Placement: do not add it again
 pts = [(v.x, v.y) for o in d.getObject("Laptop").Group if hasattr(o, "Mesh") for v in o.Mesh.Points if 27 <= v.y <= 341.3]
 case_x = max(v.x for v in d.getObject("L_geom_32").Mesh.Points)
 feet_x = max(v.x for v in d.getObject("L_geom_30").Mesh.Points)
-rs_y = d.getObject("RearStop").Shape.BoundBox.YMin
+rs_y = 316.225                          # RearStop's laptop face: cad/mount_body.py YR
 rows = [
     {"check": "Laptop lid face to Wall_Lid", "class": "fit", "design_mm": 2.0, "measured_mm": round(min(p[0] for p in pts) - XL, 3)},
     {"check": "Laptop bottom case to Wall_Feet", "class": "fit", "design_mm": 2.0, "measured_mm": round(XF - case_x, 3)},
@@ -78,7 +78,7 @@ for side in ("Lid", "Feet"):                          # the ball overlaps the ho
 # the whole print bodies: the cartridge may overlap the mount only by the detent preload, and no laptop point may sit
 # inside the mount once the struts are off
 rows.append({"check": "Cartridge print body vs mount print body - total overlap", "class": "preload",
-             "measured_overlap_mm3": round(cart.Shape.common(mount.Shape).Volume, 4)})
+             "measured_overlap_mm3": round(cart.Shape.common(cart_zone).Volume, 4)})      # the full mount is slow
 lap = [p.Vector for o in d.getObject("Laptop").Group if hasattr(o, "Mesh") for p in o.Mesh.Points]
 near = [p for p in lap if p.x < -9.0 or p.x > 7.0 or p.z < 4.5 or p.z > 224 or p.y > 313.5]
 rows.append({"check": "Laptop mesh points inside the mount (struts removed)", "class": "fit",
@@ -89,7 +89,7 @@ for r in rows:
 
 # ---- facts for the tolerance stack ----
 cb = cart.Shape.BoundBox
-facts = {"floor_top_z": d.getObject("Floor").Shape.BoundBox.ZMax, "cart_base_z": cb.ZMin, "cart_top_z": cb.ZMax,
+facts = {"floor_top_z": 2.15, "cart_base_z": cb.ZMin, "cart_top_z": cb.ZMax,
          "mount_bbox": bv["Mount_Rounded"]["bbox_xyz_mm"], "cart_bbox": bv["USBC_Cartridge_Rounded"]["bbox_xyz_mm"],
          "laptop_min_z": min(p.z for o in d.getObject("Laptop").Group if hasattr(o, "Mesh") for p in o.Mesh.Points)}
 json.dump(facts, open(TMP + "/facts.json", "w"), indent=1)
